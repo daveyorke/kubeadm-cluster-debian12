@@ -20,11 +20,11 @@ MEMORY_WORKER_NODE  = 2048
 
 Vagrant.configure("2") do |config|
 
-  config.trigger.after :up do |trigger|
-    trigger.name = "Join workers after vagrant up"
-    trigger.info = "Join workers after vagrant up"
-    trigger.run = {path: "./join-workers.sh"}
-  end
+#   config.trigger.after :up do |trigger|
+#     trigger.name = "Join workers after vagrant up"
+#     trigger.info = "Join workers after vagrant up"
+#     trigger.run = {path: "./join-workers.sh"}
+#   end
   
 
   #############################
