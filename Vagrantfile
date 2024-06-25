@@ -8,7 +8,7 @@
 
 
 # Number of Worker Nodes
-WORKER_COUNT        = 1
+WORKER_COUNT        = 4
 
 # CPU and MEMORY 
 CPUS_MASTER_NODE    = 4
