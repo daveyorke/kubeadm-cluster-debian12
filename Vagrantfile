@@ -8,12 +8,13 @@
 
 
 # Number of Worker Nodes
-WORKER_COUNT        = 4
+WORKER_COUNT        = 2
 
-# CPU and MEMORY 
+# Master Node Configuration
 CPUS_MASTER_NODE    = 4
 MEMORY_MASTER_NODE  = 4096
 
+# Worker Node Configuration
 CPUS_WORKER_NODE    = 2
 MEMORY_WORKER_NODE  = 2048
 
