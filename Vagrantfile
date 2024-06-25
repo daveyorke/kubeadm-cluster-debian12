@@ -26,6 +26,18 @@ Vagrant.configure("2") do |config|
 #     trigger.run = {path: "./join-workers.sh"}
 #   end
   
+  # All VMs get this basic configuration
+
+  # Add entries for master and all workers in /etc/hosts
+   config.vm.provision "shell", inline: "echo '192.168.25.10 master' | sudo tee -a /etc/hosts"
+   (1..WORKER_COUNT).each do |i|
+     config.vm.provision "shell", inline: "echo '192.168.25.#{i+10} worker#{i}' | sudo tee -a /etc/hosts"
+   end
+
+  config.vm.provision "shell", path: "install-common.sh"
+
+
+
 
   #############################
   # MASTER NODE Configuration #
@@ -46,14 +58,9 @@ Vagrant.configure("2") do |config|
     # Set hostname 
     master.vm.provision "shell", inline: "sudo hostnamectl hostname master"
 
-    # Add entries for master and all workers in /etc/hosts
-    master.vm.provision "shell", inline: "echo '192.168.25.10 master' | sudo tee -a /etc/hosts"
-    (1..WORKER_COUNT).each do |i|
-      master.vm.provision "shell", inline: "echo '192.168.25.#{i+10} worker#{i}' | sudo tee -a /etc/hosts"
-    end
 
     # Install and configure kubernetes to control plane
-    master.vm.provision "shell", path: "install-common.sh"
+    # master.vm.provision "shell", path: "install-common.sh"
     master.vm.provision "shell", path: "install-master.sh"
   end
 
@@ -79,11 +86,11 @@ Vagrant.configure("2") do |config|
       worker.vm.provision "shell", inline: "sudo hostnamectl hostname worker#{i}"
 
       # Add entries for master and all workers in /etc/hosts
-      worker.vm.provision "shell", inline: "echo '192.168.25.10 master' | sudo tee -a /etc/hosts"
-      worker.vm.provision "shell", inline: "echo '192.168.25.#{i+10} worker#{i}' | sudo tee -a /etc/hosts"
+      # worker.vm.provision "shell", inline: "echo '192.168.25.10 master' | sudo tee -a /etc/hosts"
+      # worker.vm.provision "shell", inline: "echo '192.168.25.#{i+10} worker#{i}' | sudo tee -a /etc/hosts"
 
       # Install and configure kubernetes to worker nodes
-      worker.vm.provision "shell", path: "install-common.sh"
+      # worker.vm.provision "shell", path: "install-common.sh"
       worker.vm.provision "shell", path: "install-worker.sh"
     end
 
