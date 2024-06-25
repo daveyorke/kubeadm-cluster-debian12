@@ -8,11 +8,16 @@ This is a repository created thanks to the great work done by Kim Wuestcamp for 
 - libvirt
 - git
 
+### Kubernetes Environment
+- kubeadm deployment
+- podman
+- containerd
+- calico networking
+
 ### Features
-- Kubeadm-deployed kubernetes cluster with a single master node and single/multiple workers
-- User-definable master and worker CPU and memory
+- Single master node and user-definable count of worker nodes
+- User-definable CPU and memory for all nodes
 - Post installation script to join the workers to the cluster (must run manually for the time being)
-- 
 
 ### Instructions
 1. Clone this repository into a folder
