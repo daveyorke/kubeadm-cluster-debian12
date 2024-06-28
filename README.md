@@ -4,7 +4,7 @@ This is a repository created thanks to the great work done by Kim Wuestcamp for 
 
 ### Prerequisites
 - Debian 12 (Bookworm)
-- vagrant
+- vagrant, vagrant-libvirt
 - libvirt
 - git
 
