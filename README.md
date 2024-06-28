@@ -9,7 +9,7 @@ This is a repository created thanks to the great work done by Kim Wuestcamp for 
 - git
 
 ### Kubernetes Environment
-- kubeadm deployment
+- kubeadm deployment (version 1.29.2)
 - podman
 - containerd
 - calico networking
